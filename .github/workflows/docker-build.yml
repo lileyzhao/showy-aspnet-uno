@@ -29,20 +29,20 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/showy-aspnet-uno:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/showy-aspnet-uno:latest,${{ secrets.DOCKER_USERNAME }}/showy-aspnet-uno:8.0
           no-cache: true
 
       - name: Update README with last run time
-      run: |
-        DATE=$(date)
-        sed -i "s/Last updated:.*/Last updated: $DATE/" README.md
+        run: |
+          DATE=$(date)
+          sed -i "s/Last updated:.*/Last updated: $DATE/" README.md
 
       - name: Commit changes
-      run: |
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git add README.md
-        git commit -m "build: 🛠️ build and push image"
-        git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add README.md
+          git commit -m "build: 🛠️ build and push image"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
