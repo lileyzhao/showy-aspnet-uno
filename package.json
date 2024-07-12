@@ -1,0 +1,11 @@
+{
+  "name": "showy-aspnet-uno",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "docker build -t aspnet-uno:8.0 ."
+  },
+  "keywords": [],
+  "author": "LileyZhao@gmail.com",
+  "license": "MIT"
+}
