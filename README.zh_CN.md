@@ -8,7 +8,7 @@
 
 ## 🚀 使用镜像
 
-你可以直接拉取并使用现成的镜像（每 7 天自动构建并更新）：
+你可以直接拉取并使用现成的镜像（最新更新: <!--TIMESTAMP-->）：
 
 ```sh
 docker pull lileyzhao/showy-aspnet-uno
