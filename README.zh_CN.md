@@ -1,8 +1,10 @@
 # showy-aspnet-uno
 
-这个项目旨在提供一个基于 ASP.NET 和 LibreOffice 的 Docker 镜像，使得 ASP.NET 应用程序可以轻松调用 LibreOffice 的文档处理和转换功能。这个镜像基于 `mcr.microsoft.com/dotnet/aspnet:8.0` 构建。
+这个项目旨在构建一个基于 ASP.NET 和 LibreOffice 的 Docker 镜像，使得 ASP.NET 应用程序可以轻松调用 LibreOffice 的文档处理和转换功能。基于 `mcr.microsoft.com/dotnet/aspnet:8.0` 构建。
 
-项目提供了一个现成的镜像 `lileyzhao/showy-aspnet-uno`，你可以直接使用，也可以构建并推送到自己的镜像库。镜像的 Docker Hub 链接为：[lileyzhao/showy-aspnet-uno](https://hub.docker.com/r/lileyzhao/showy-aspnet-uno)。
+项目提供了一个现成的镜像 `lileyzhao/showy-aspnet-uno`，你可以直接使用，也可以构建并推送到自己的镜像库。
+
+镜像的 Docker Hub 链接为：[lileyzhao/showy-aspnet-uno](https://hub.docker.com/r/lileyzhao/showy-aspnet-uno)。
 
 ## 🚀 使用镜像
 

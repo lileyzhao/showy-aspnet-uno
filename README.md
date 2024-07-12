@@ -1,8 +1,10 @@
 # showy-aspnet-uno
 
-This project provides a Docker image based on ASP.NET and LibreOffice, enabling ASP.NET applications to easily utilize LibreOffice for document processing and conversion. The image is built on `mcr.microsoft.com/dotnet/aspnet:8.0`.
+This project provides a Docker image based on ASP.NET and LibreOffice, enabling ASP.NET applications to easily utilize LibreOffice for document processing and conversion. Built on `mcr.microsoft.com/dotnet/aspnet:8.0`.
 
-A pre-built image, `lileyzhao/showy-aspnet-uno`, is available for use. You can either use this image directly or build and push it to your own repository. The Docker Hub link for the image is: [lileyzhao/showy-aspnet-uno](https://hub.docker.com/r/lileyzhao/showy-aspnet-uno).
+A pre-built image, `lileyzhao/showy-aspnet-uno`, is available for use. You can either use this image directly or build and push it to your own repository.
+
+The Docker Hub link for the image is: [lileyzhao/showy-aspnet-uno](https://hub.docker.com/r/lileyzhao/showy-aspnet-uno).
 
 ## 🚀 Using the Image
 
