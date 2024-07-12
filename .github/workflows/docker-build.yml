@@ -39,7 +39,8 @@ jobs:
 
       - name: Update README with last run time
         run: |
-          sed -i "s/<!-- BUILD_TIME -->/${{ env.DATE }}/" README.md
+          sed -i "s/(Last updated: \`.*\`)/(Last updated: \`${{ env.DATE }}\`)//" README.md
+          sed -i "s/（最新更新: \`.*\`)/（最新更新: \`${{ env.DATE }}\`)/" README.zh_CN.md
 
       - name: Commit changes
         run: |
