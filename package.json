@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "docker build -t aspnet-uno:8.0 ."
+    "build": "docker buildx build --no-cache --push -t lileyzhao/showy-aspnet-uno:8.0 ."
   },
   "keywords": [],
   "author": "LileyZhao@gmail.com",
