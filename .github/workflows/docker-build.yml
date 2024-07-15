@@ -32,15 +32,27 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/showy-aspnet-uno:latest,${{ secrets.DOCKER_USERNAME }}/showy-aspnet-uno:8.0
           no-cache: true
 
-      - name: Set build time
+      # - name: Set build time
+      #   run: |
+      #     DATE=$(date +"%Y-%m-%d %H:%M:%S" -d 'TZ="Asia/Shanghai"')
+      #     echo "DATE=$DATE" >> $GITHUB_ENV
+
+      - name: Get current time in specific timezone
+        id: current-time
         run: |
-          DATE=$(date +"%Y-%m-%d %H:%M:%S" -d 'TZ="Asia/Shanghai"')
-          echo "DATE=$DATE" >> $GITHUB_ENV
+          echo "Setting timezone to Asia/Shanghai"
+          sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+          sudo dpkg-reconfigure -f noninteractive tzdata
+          echo "Current time in Asia/Shanghai timezone: $(date)"
+          echo "CURRENT_TIME=$(date +"%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
 
       - name: Update README with last run time
         run: |
-          sed -i "s/\(Last updated: \`.*\`\)/\(Last updated: \`${{ env.DATE }}\`\)/" README.md
-          sed -i "s/\(最新更新: \`.*\`\)/\(最新更新: \`${{ env.DATE }}\`\)/" README.zh_CN.md
+          sed -i "s/\(Last updated: \`.*\`\)/Last updated: \`${{ env.CURRENT_TIME }}\`/" README.md
+
+      - name: Update README.zh_CN with last run time
+        run: |
+          sed -i "s/\(最新更新: \`.*\`\)/最新更新: \`${{ env.CURRENT_TIME }}\`/" README.zh_CN.md
 
       - name: Commit changes
         run: |
