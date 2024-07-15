@@ -32,11 +32,6 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/showy-aspnet-uno:latest,${{ secrets.DOCKER_USERNAME }}/showy-aspnet-uno:8.0
           no-cache: true
 
-      # - name: Set build time
-      #   run: |
-      #     DATE=$(date +"%Y-%m-%d %H:%M:%S" -d 'TZ="Asia/Shanghai"')
-      #     echo "DATE=$DATE" >> $GITHUB_ENV
-
       - name: Get current time in specific timezone
         id: current-time
         run: |
@@ -49,16 +44,13 @@ jobs:
       - name: Update README with last run time
         run: |
           sed -i "s/\(Last updated: \`.*\`\)/Last updated: \`${{ env.CURRENT_TIME }}\`/" README.md
-
-      - name: Update README.zh_CN with last run time
-        run: |
           sed -i "s/\(最新更新: \`.*\`\)/最新更新: \`${{ env.CURRENT_TIME }}\`/" README.zh_CN.md
 
       - name: Commit changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add README.md
+          git add README.md README.zh_CN.md
           git commit -m "build: 🛠️ build and push image"
           git push
         env:
