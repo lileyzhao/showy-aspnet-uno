@@ -71,6 +71,10 @@ public void ConvertToPdf(string inputFile, string outputFile)
 }
 ```
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=lileyzhao/showy-aspnet-uno&type=Date)](https://star-history.com/#lileyzhao/showy-aspnet-uno&Date)
+
 ---
 
 Happy coding! 🚀
