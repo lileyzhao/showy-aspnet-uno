@@ -8,7 +8,7 @@ The Docker Hub link for the image is: [lileyzhao/showy-aspnet-uno](https://hub.d
 
 ## 🚀 Using the Image
 
-You can pull and use the pre-built image (Last updated: `2024-08-29 08:15:14`):
+You can pull and use the pre-built image (Last updated: `2024-09-01 08:18:00`):
 
 ```sh
 docker pull lileyzhao/showy-aspnet-uno
