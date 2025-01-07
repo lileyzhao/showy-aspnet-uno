@@ -1,0 +1,27 @@
+# gitignore documentation: https://git-scm.com/docs/gitignore
+
+# macOS
+.DS_Store
+.AppleDouble
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Linux
+.Trash-*
+.nfs*
+
+# Office Temp Files
+~$*.doc*
+.~*.doc*
+~$*.dot*
+.~*.dot*
+~$*.xls*
+.~*.xls*
+~$*.xlt*
+.~*.xlt*
+~$*.ppt*
+.~*.ppt*
+~$*.pot*
+.~*.pot*
