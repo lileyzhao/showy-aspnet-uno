@@ -8,7 +8,7 @@ on:
       - 'README.md'
       - 'README.zh_CN.md'
   schedule:
-    - cron: '0 0 */10 * *' # Trigger every 7 days at midnight (UTC)
+    - cron: '0 0 */30 * *' # Trigger every 30 days at midnight (UTC)
 
 jobs:
   build:

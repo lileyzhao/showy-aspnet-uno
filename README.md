@@ -1,7 +1,7 @@
 # showy-aspnet-uno
 <!-- markdownlint-disable MD033 -->
 <p align='center'>
-<b>English</b> | <a href="./README.zh-CN.md">简体中文</a>
+<b>English</b> | <a href="README.zh-CN.md">简体中文</a>
 </p>
 
 This project provides a Docker image based on ASP.NET and LibreOffice, enabling ASP.NET applications to easily utilize LibreOffice for document processing and conversion. Built on `mcr.microsoft.com/dotnet/aspnet:8.0`.
@@ -12,15 +12,44 @@ The Docker Hub link for the image is: [lileyzhao/showy-aspnet-uno](https://hub.d
 
 ## 🚀 Using the Image
 
-You can pull and use the pre-built image (Last updated: `2025-01-07 18:51:08`):
+You can directly replace the ASP.NET Dockerfile (Last updated: `2025-01-07 18:51:08`):
 
-```sh
-docker pull lileyzhao/showy-aspnet-uno
+```dockerfile
+# FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+# Replace with lileyzhao/showy-aspnet-uno
+FROM lileyzhao/showy-aspnet-uno:8.0 AS base
+USER app
+WORKDIR /app
 ```
 
-## 🔨 Building the Image Yourself
+## 📄 Using LibreOffice in an ASP.NET Application
 
-Follow these simple steps to build a Docker image that includes ASP.NET and LibreOffice.
+Here is a simple example showing how to call LibreOffice in an ASP.NET application to convert documents to PDF:
+
+```csharp
+using System.Diagnostics;
+
+public void ConvertToPdf(string inputFile, string outputFile)
+{
+    var process = new Process
+    {
+        StartInfo = new ProcessStartInfo
+        {
+            FileName = "libreoffice",
+            Arguments = $"--headless --convert-to pdf --outdir {Path.GetDirectoryName(outputFile)} {inputFile}",
+            RedirectStandardOutput = true,
+            UseShellExecute = false,
+            CreateNoWindow = true,
+        }
+    };
+    process.Start();
+    process.WaitForExit();
+}
+```
+
+## 🔨 Building the Image Yourself ( Optional )
+
+If you want to use your own image repository, you can follow these steps to build a Docker image that includes ASP.NET and LibreOffice.
 
 ### Prerequisites
 
@@ -48,31 +77,6 @@ After building, you can push the image to your own Docker repository:
 ```sh
 docker tag showy-aspnet-uno your-docker-repo/showy-aspnet-uno
 docker push your-docker-repo/showy-aspnet-uno
-```
-
-## 📄 Using LibreOffice in an ASP.NET Application
-
-Here is a simple example showing how to call LibreOffice in an ASP.NET application to convert documents to PDF:
-
-```csharp
-using System.Diagnostics;
-
-public void ConvertToPdf(string inputFile, string outputFile)
-{
-    var process = new Process
-    {
-        StartInfo = new ProcessStartInfo
-        {
-            FileName = "libreoffice",
-            Arguments = $"--headless --convert-to pdf --outdir {Path.GetDirectoryName(outputFile)} {inputFile}",
-            RedirectStandardOutput = true,
-            UseShellExecute = false,
-            CreateNoWindow = true,
-        }
-    };
-    process.Start();
-    process.WaitForExit();
-}
 ```
 
 ## Star History
