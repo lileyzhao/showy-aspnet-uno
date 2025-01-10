@@ -12,7 +12,7 @@ The Docker Hub link for the image is: [lileyzhao/showy-aspnet-uno](https://hub.d
 
 ## 🚀 Using the Image
 
-You can directly replace the ASP.NET Dockerfile (Last updated: `2025-01-07 18:51:08`):
+You can directly replace the ASP.NET Dockerfile (Last updated: `2025-01-10 12:18:10`):
 
 ```dockerfile
 # FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
